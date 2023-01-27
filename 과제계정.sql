@@ -127,7 +127,72 @@ SELECT
              - TO_CHAR(TO_DATE(SUBSTR(STUDENT_SSN, 1, 2), 'RRRR'), 'RRRR'));
        
 --6. 2020 년 크리스마스는 무슨 요일인가?
+ SELECT
+      TO_CHAR(TO_DATE('20201225', 'RRRRMMDD'), 'DAY')
+  FROM DUAL;
+       
+--7. TO_DATE('99/10/11','YY/MM/DD'), TO_DATE('49/10/11','YY/MM/DD') 은 각각 몇 년 몇
+--월 몇 일을 의미핛까? 또 TO_DATE('99/10/11','RR/MM/DD'),
+--TO_DATE('49/10/11','RR/MM/DD') 은 각각 몇 년 몇 월 몇 일을 의미핛까? 
+SELECT
+       TO_DATE('99/10/11','YY/MM/DD')
+     , TO_DATE('49/10/11','YY/MM/DD')
+     , TO_DATE('99/10/11','RR/MM/DD')
+     , TO_DATE('49/10/11','RR/MM/DD')
+  FROM DUAL;
+  
+--8. 춘 기술대학교의 2000 년도 이후 입학자들은 학번이 A 로 시작하게 되어있다. 2000 년도
+--이젂 학번을 받은 학생들의 학번과 이름을 보여주는 SQL 문장을 작성하시오.
+SELECT
+       S.STUDENT_NO
+     , S.STUDENT_NAME
+  FROM TB_STUDENT S
+ WHERE S.STUDENT_NO NOT LIKE 'A%';
  
-       
-       
+--9. 학번이 A517178 인 한아름 학생의 학점 총 평점을 구하는 SQL 문을 작성하시오. 단,
+--이때 출력 화면의 헤더는 "평점" 이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 핚
+--자리까지맊 표시핚다.
+SELECT
+       STUDENT_NAME
+     , STUDENT_NO
+     , AVG(POINT)
+  FROM TB_GRADE
+ ORDER BY POINT DESC
+ WHERE STUDENT_NAME IN '한아름';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        
