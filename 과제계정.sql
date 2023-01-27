@@ -153,14 +153,14 @@ SELECT
 --이때 출력 화면의 헤더는 "평점" 이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 핚
 --자리까지맊 표시핚다.
 SELECT
-       STUDENT_NAME
-     , STUDENT_NO
-     , AVG(POINT)
+        ROUND(AVG(POINT), 1) 평균
   FROM TB_GRADE
- ORDER BY POINT DESC
- WHERE STUDENT_NAME IN '한아름';
+ WHERE STUDENT_NO = 'A517178'
+ ORDER BY 평균 DESC;
 
 
+--10. 학과별 학생수를 구하여 "학과번호", "학생수(명)" 의 형태로 헤더를 맊들어 결과값이
+--출력되도록 하시오.
 
 
 
